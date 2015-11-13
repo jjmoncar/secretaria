@@ -2,7 +2,11 @@ ModConexion
 Secretaria
 0
 0
+<<<<<<< HEAD
 0.0.2
+=======
+0.0.1
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 
 gb.image
 gb.qt4

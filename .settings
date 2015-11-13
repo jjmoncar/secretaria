@@ -8,10 +8,17 @@ Count=0
 Geometry=[0,27,825,333]
 
 [OpenFile]
+<<<<<<< HEAD
 Active=1
 File[1]=".src/FrmDocumento.form"
 File[2]=".src/FrmDocumento.class:4.0"
 File[3]=".src/ModConexion.module:72.23"
+=======
+File[1]=".src/ModConexion.module:78.14"
+File[2]=".src/FrmDocumento.form"
+Active=3
+File[3]=".src/FrmDocumento.class:62.0"
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 Count=3
 
 [Watches]

@@ -2,7 +2,10 @@
 
 Public Acumulador As Integer
 Public codDpto As Variant
+<<<<<<< HEAD
 Public Fechas As Date
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 
 Public Function BusquedaCargo()
   
@@ -20,7 +23,11 @@ Public Function BusquedaOficio()
   
   Dim MiNumOficio As String
   
+<<<<<<< HEAD
   MiNumOficio = "Select a.id,a.nombre_dpto,b.num_oficio from departamento a join documento b where a.nombre_dpto='" & ComboPara.Text & "' order by b.num_oficio ASC"
+=======
+  MiNumOficio = "Select a.id,a.nombre_dpto,b.num_oficio from departamento a join documento b where a.nombre_dpto='" & ComboPara.Text & "'"
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
   ModConexion.consulta(MiNumOficio)
   If ModConexion.rs1.Count > 0 Then
     codDpto = ModConexion.rs1!id
@@ -59,7 +66,11 @@ Dim i As Integer
 End
 
 Public Sub Form_Open()
+<<<<<<< HEAD
 
+=======
+Dim Fechas As Date
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 Fechas = Date
 
   lblFecha.text = Format(Fechas, "dd/mm/yyyy")
@@ -82,8 +93,11 @@ End
 Public Sub btnGuardar_Click()
 
     Dim query As String
+<<<<<<< HEAD
     
     lblFecha.Text = Format(Fechas, "yyyy-mm-dd")
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
   
   query = "INSERT INTO documento set codigo='" & lblOficio.Text & "', num_oficio='" & Acumulador & "', contenido='" & 
   Trim(UCase(txtContenido.Text)) & "', fecha='" & lblFecha.Text & "', id_departamento='" & codDpto & "', para='" & 
@@ -92,8 +106,11 @@ Public Sub btnGuardar_Click()
   If ModConexion.conexion() Then
     message.Info("Datos Guardados!")
     ModConexion.LimpiarTodo()
+<<<<<<< HEAD
     lblOficio.Text = ""
     lblFecha.text = Format(Fechas, "dd/mm/yyyy")
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
     Else
       message.Error("Los datos no se pudieron insertar")
   Endif

@@ -14,6 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+<<<<<<< HEAD
 #: FrmPrincipal.form:37
 msgid "Pantalla Principal"
 msgstr ""
@@ -107,6 +108,101 @@ msgid "Navegador Web"
 msgstr ""
 
 #: FrmPrincipal.form:180
+=======
+#: FrmPrincipal.form:36
+msgid "Pantalla Principal"
+msgstr ""
+
+#: FrmPrincipal.form:41
+msgid "Opciones"
+msgstr ""
+
+#: FrmPrincipal.form:45
+msgid "Redactar Documento"
+msgstr ""
+
+#: FrmPrincipal.form:50
+msgid "Consular Documento"
+msgstr ""
+
+#: FrmPrincipal.form:58
+msgid "Configurar"
+msgstr ""
+
+#: FrmPrincipal.form:62
+msgid "Personal"
+msgstr ""
+
+#: FrmPrincipal.form:67
+msgid "Usuarios"
+msgstr ""
+
+#: FrmPrincipal.form:72
+msgid "Cargos"
+msgstr ""
+
+#: FrmPrincipal.form:77
+msgid "Departamento"
+msgstr ""
+
+#: FrmPrincipal.form:86
+msgid "Salir"
+msgstr ""
+
+#: FrmPrincipal.form:92
+msgid "Reportes"
+msgstr ""
+
+#: FrmPrincipal.form:96
+msgid "Documentos Por Dpto."
+msgstr ""
+
+#: FrmPrincipal.form:101
+msgid "Documentos Por Lapso"
+msgstr ""
+
+#: FrmPrincipal.form:106
+msgid "Documentos Por Empleado"
+msgstr ""
+
+#: FrmPrincipal.form:112
+msgid "Ayuda"
+msgstr ""
+
+#: FrmPrincipal.form:116
+msgid "Ayuda en Linea"
+msgstr ""
+
+#: FrmPrincipal.form:121
+msgid "Licencia"
+msgstr ""
+
+#: FrmPrincipal.form:126
+msgid "Acerca de.."
+msgstr ""
+
+#: FrmPrincipal.form:139
+msgid "ToolBar1"
+msgstr ""
+
+#: FrmPrincipal.form:148
+msgid "Redactar"
+msgstr ""
+
+#: FrmPrincipal.form:154
+msgid "Consultar Documento"
+msgstr ""
+
+#: FrmPrincipal.form:160
+msgid "Configurar Usuarios"
+msgstr ""
+
+#: FrmPrincipal.form:166
+msgid "Navegador Web"
+msgstr ""
+
+#: FrmPrincipal.form:178
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 msgid "Salir de la Aplicación"
 msgstr ""
 

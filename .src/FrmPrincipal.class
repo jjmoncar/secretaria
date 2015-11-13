@@ -84,9 +84,12 @@ Public Sub ToolBtnRedactar_Click()
   Contenedor.Add(FrmDocumento)
 
 End
+<<<<<<< HEAD
 
 Public Sub Form_Resize()
 
   Contenedor.Width = Me.Width - 60
 
 End
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b

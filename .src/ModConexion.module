@@ -83,7 +83,11 @@ Public Function LimpiarTodo()
         Endif
         If Object.Type(ctl) = "ComboBox" Then
           comb = ctl
+<<<<<<< HEAD
           comb.Refresh()
+=======
+          comb.Clear()
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
         Endif
     Next 
   

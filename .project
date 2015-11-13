@@ -3,7 +3,11 @@
 Title=Secretaria
 Startup=ModConexion
 Icon=png/32x32/notebook_edit.png
+<<<<<<< HEAD
 Version=0.0.3
+=======
+Version=0.0.2
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -23,5 +27,8 @@ Authors="Ing. Julio J. Montaño C."
 TabSize=2
 Translate=1
 Language=es
+<<<<<<< HEAD
 SourcePath=/home/admindit/gambas
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
 Packager=1

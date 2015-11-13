@@ -5,7 +5,10 @@
   Text = ("Pantalla Principal")
   Icon = Picture["png/32x32/globe.png"]
   Maximized = True
+<<<<<<< HEAD
   AutoResize = True
+=======
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
   { MnOpciones Menu
     Text = ("Opciones")
     Shortcut = "Alt+O"
@@ -122,11 +125,16 @@
       Picture = Picture["icon:/32/quit"]
     }
   }
+<<<<<<< HEAD
   { HBox1 HBox
     MoveScaled(4,11,95,81)
     AutoResize = True
     { Contenedor Workspace
       MoveScaled(3,2,90,75)
     }
+=======
+  { Contenedor Workspace
+    MoveScaled(2,9,155,97)
+>>>>>>> d91efe12f8c44c0489d4fd00075d8d60ad43d35b
   }
 }
