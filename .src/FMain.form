@@ -1,0 +1,38 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,36,21)
+  Resizable = False
+  Border = False
+  { Label1 Label
+    MoveScaled(5,2,8,4)
+    Text = ("Usuario:")
+  }
+  { Label2 Label
+    MoveScaled(2,7,11,4)
+    Text = ("Contraseña:")
+  }
+  { TxtUsuario TextBox
+    MoveScaled(13,2,21,4)
+    ToolTip = ("Ingrese su Nombre de Usuario")
+    MaxLength = 12
+  }
+  { TxtPass TextBox
+    MoveScaled(13,7,21,4)
+    ToolTip = ("Ingrese su contraseña o password")
+    Password = True
+    MaxLength = 12
+  }
+  { BtnIngresar Button
+    MoveScaled(5,13,14,6)
+    ToolTip = ("Presione para validar su usuario y contraseña")
+    Text = ("&Ingresar")
+    Picture = Picture["png/32x32/business_user_accept.png"]
+  }
+  { BtnCancelar Button
+    MoveScaled(20,13,14,6)
+    ToolTip = ("Cierra la aplicación...")
+    Text = ("&Cancelar")
+    Picture = Picture["png/32x32/red_button.png"]
+  }
+}

@@ -1,0 +1,11 @@
+[Connection]
+Type="mysql"
+Host="localhost"
+Port="3306"
+User="root"
+RememberPassword=False
+IgnoreCharset=False
+DisplayMetadata=False
+Database="secretaria"
+Requests=[""]
+

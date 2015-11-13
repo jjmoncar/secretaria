@@ -1,0 +1,24 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+ModConexion.conexion()
+
+DataSource1.Table = "departamento"
+DataSource1.Refresh
+
+End
+
+
+Public Sub DataControlId_LostFocus()
+
+  DataControlId.Value = Trim(UCase(DataControlId.Value))
+
+End
+
+Public Sub DataControlNombre_LostFocus()
+
+  DataControlNombre.Value = Trim(UCase(DataControlNombre.Value))
+
+End

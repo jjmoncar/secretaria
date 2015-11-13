@@ -1,0 +1,100 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,82,67)
+  Text = ("Personal")
+  Icon = Picture["png/32x32/users.png"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(8,2,7,4)
+    Text = ("Cedula:")
+  }
+  { !ValueCedula ValueBox
+    MoveScaled(8,5,28,4)
+    #Public = True
+    ToolTip = ("Ingrese un numero de cedula para buscar.")
+  }
+  { Label2 Label
+    MoveScaled(8,10,10,4)
+    Text = ("Nombres:")
+  }
+  { !TxtNombre TextBox
+    MoveScaled(8,13,65,4)
+    #Public = True
+    MaxLength = 40
+  }
+  { Label3 Label
+    MoveScaled(8,18,10,4)
+    Text = ("Apellidos:")
+  }
+  { !TxtApellidos TextBox
+    MoveScaled(8,21,65,4)
+    #Public = True
+    MaxLength = 40
+  }
+  { Label5 Label
+    MoveScaled(8,26,9,4)
+    Text = ("Telefono:")
+  }
+  { !TxtTelefono TextBox
+    MoveScaled(8,29,65,4)
+    #Public = True
+    MaxLength = 11
+  }
+  { Label6 Label
+    MoveScaled(8,34,7,4)
+    Text = ("Celular:")
+  }
+  { !TxtCelular TextBox
+    MoveScaled(8,37,65,4)
+    #Public = True
+    MaxLength = 11
+  }
+  { !BtnNuevo Button
+    MoveScaled(2,56,12,7)
+    #Public = True
+    Text = ("Nuevo")
+    Picture = Picture["png/32x32/business_user.png"]
+  }
+  { !BtnGuardar Button
+    MoveScaled(15,56,12,7)
+    #Public = True
+    Text = ("Guardar")
+    Picture = Picture["png/32x32/business_user_add.png"]
+  }
+  { !BtnEditar Button
+    MoveScaled(28,56,12,7)
+    #Public = True
+    Text = ("Editar")
+    Picture = Picture["png/32x32/business_user_edit.png"]
+  }
+  { !BtnEliminar Button
+    MoveScaled(41,56,12,7)
+    #Public = True
+    Text = ("Eliminar")
+    Picture = Picture["png/32x32/business_user_delete.png"]
+  }
+  { !BtnCerrar Button
+    MoveScaled(67,56,12,7)
+    #Public = True
+    Text = ("Cerrar")
+    Picture = Picture["png/32x32/red_button.png"]
+  }
+  { BtnLimpiar Button
+    MoveScaled(54,56,12,7)
+    Text = ("Limpiar")
+    Picture = Picture["icon:/32/clear"]
+  }
+  { ComboDepartamento ComboBox
+    MoveScaled(8,47,19,4)
+    ReadOnly = True
+  }
+  { Label4 Label
+    MoveScaled(8,43,13,4)
+    Text = ("Departamento:")
+  }
+  { lblDpto Label
+    MoveScaled(28,47,45,4)
+    Border = Border.Etched
+  }
+}

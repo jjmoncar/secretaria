@@ -1,0 +1,96 @@
+' Gambas class file 
+
+Public Acumulador As Integer
+Public codDpto As Variant
+
+Public Function BusquedaCargo()
+  
+   Dim MiConsulta As String
+   BusquedaOficio()
+   MiConsulta = "SELECT siglas FROM departamento WHERE nombre_dpto='" & ComboPara.Text & "'"
+   ModConexion.consulta(MiConsulta)
+   If ModConexion.rs1.Count > 0 Then
+     lblOficio.Text = ModConexion.rs1!siglas & " - N° " & Acumulador & " - " & Year(Now)
+   Endif
+  
+End
+
+Public Function BusquedaOficio()
+  
+  Dim MiNumOficio As String
+  
+  MiNumOficio = "Select a.id,a.nombre_dpto,b.num_oficio from departamento a join documento b where a.nombre_dpto='" & ComboPara.Text & "'"
+  ModConexion.consulta(MiNumOficio)
+  If ModConexion.rs1.Count > 0 Then
+    codDpto = ModConexion.rs1!id
+    ModConexion.rs1.MoveLast
+    Acumulador = ModConexion.rs1!num_oficio + 1
+    
+  Else
+    Acumulador = 1
+    MiNumOficio = "Select id,siglas from departamento where nombre_dpto='" & ComboPara.Text & "'"
+     ModConexion.consulta(MiNumOficio)
+     If ModConexion.rs1.Count > 0 Then
+       codDpto = ModConexion.rs1!id
+       Message.Info("El codigo es: " & codDpto)
+     Endif
+  Endif
+  
+End
+
+
+Public Function BusquedaPara()
+  
+Dim captura As Integer
+Dim i As Integer
+
+    ModConexion.rs1 = ModConexion.db.Exec("SELECT nombre_dpto,siglas FROM departamento")
+    ModConexion.rs1.MoveFirst
+    captura = ModConexion.rs1.Count
+    i = 1
+    While i <= captura
+      ComboPara.Add(ModConexion.rs1!nombre_dpto)
+      ComboPara.Refresh()
+      ModConexion.rs1.MoveNext
+        Dec (captura)
+    Wend
+  
+End
+
+Public Sub Form_Open()
+Dim Fechas As Date
+Fechas = Date
+
+  lblFecha.text = Format(Fechas, "dd/mm/yyyy")
+  BusquedaPara()
+
+End
+
+Public Sub btnCerrar_Click()
+
+  Me.Close
+
+End
+
+Public Sub ComboPara_Click()
+
+  BusquedaCargo()
+
+End
+
+Public Sub btnGuardar_Click()
+
+    Dim query As String
+  
+  query = "INSERT INTO documento set codigo='" & lblOficio.Text & "', num_oficio='" & Acumulador & "', contenido='" & 
+  Trim(UCase(txtContenido.Text)) & "', fecha='" & lblFecha.Text & "', id_departamento='" & codDpto & "', para='" & 
+  ComboPara.Text & "', asunto='" & Trim(UCase(txtAsunto.Text)) & "',cc='" & Trim(UCase(txtCC.Text)) & "'"
+  ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Datos Guardados!")
+    ModConexion.LimpiarTodo()
+    Else
+      message.Error("Los datos no se pudieron insertar")
+  Endif
+
+End

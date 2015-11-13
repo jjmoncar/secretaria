@@ -1,0 +1,113 @@
+' Gambas class file
+
+Public Valor As String
+Public Valor2 As String
+Public bandera As Boolean
+
+Public Sub BtnCerrarCargo_Click()
+
+  Me.Close
+
+End
+
+Public Sub Form_Open()
+
+BusquedaCarga()
+
+End
+
+Function BusquedaNombre()
+  
+    Dim consul As String
+  
+   consul = "SELECT nombre,apellido FROM personal WHERE cedula='" & ComboDpto.Text & "'"
+   ModConexion.consulta(consul)
+   If ModConexion.rs1.Count > 0 Then
+     Valor2 = ModConexion.rs1!nombre & " " & ModConexion.rs1!apellido
+     lblNombreConsulta.Text = Valor2
+   Endif
+  
+End
+
+
+Public Function BusquedaCarga()
+  
+Dim captura As Integer
+Dim i As Integer
+
+    ModConexion.rs1 = ModConexion.db.Exec("select * FROM secretaria.personal")
+    ModConexion.rs1.MoveFirst
+    captura = ModConexion.rs1.Count
+    i = 1
+    While i <= captura
+      ComboDpto.Add(ModConexion.rs1!cedula)
+      ComboDpto.Refresh()
+      ModConexion.rs1.MoveNext
+        Dec (captura)
+    Wend
+  
+End
+
+Public Function BusquedaElemento()
+  
+  Dim query As String
+  
+   query = "SELECT cedula FROM personal WHERE cedula='" & ComboDpto.Text & "'"
+   ModConexion.consulta(query)
+   If ModConexion.rs1.Count > 0 Then
+     Valor = ModConexion.rs1!cedula
+   Endif
+  
+End
+
+Public Function Verificar()
+  
+    Dim query As String
+  
+   query = "SELECT * FROM cargos WHERE  nombre_cargo='" & Trim(UCase(txtCargo.Text)) & "'"
+   ModConexion.consulta(query)
+   If ModConexion.rs1.Count > 0 Then
+     bandera = True
+     Message.Error("El cargo: " & ModConexion.rs1!nombre_cargo & " ya esta Asignado!")
+     Stop Event
+     
+   Endif
+  
+End
+
+
+Public Sub BtnAgregarCargo_Click()
+
+Dim query As String
+
+BusquedaElemento()
+Verificar()
+
+If txtCargo.Text = "" Or bandera = True Then
+  Message.Error("Campos vacios!")
+  txtCargo.Clear()
+  txtCargo.SetFocus()
+  Stop Event
+  Else
+     query = "INSERT INTO cargos set nombre_cargo='" & Trim(UCase(txtCargo.Text)) & "', cedula_per='" & Valor & "'"
+     ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Los dato se insertaron satisfactoriamente")
+    txtCargo.Clear()
+    ComboDpto.Refresh
+    lblNombreConsulta.Text = ""
+    txtCargo.SetFocus
+    bandera = False
+    Else
+      message.Error("Los datos no se pudieron insertar. " & Error.Text)
+  Endif
+Endif
+
+End
+
+
+Public Sub ComboDpto_Click()
+
+  BusquedaNombre()
+
+End

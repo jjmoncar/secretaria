@@ -1,0 +1,183 @@
+' Gambas class file
+
+Public Sub BuscarUsuario()
+  
+   Dim i As Integer
+  
+  ModConexion.rs1 = ModConexion.db.Exec("select * FROM usuarios where usuario = '" & Trim(TxtUsuario.Text) & "'")
+  If ModConexion.rs1.Count = 0 Then
+    Message.Info("Datos no encontrados")
+    LimpiarUsuarios()
+    HabilitarUsuarios()
+    BtnGuardarUsua.Enabled = True
+    Stop Event
+  Endif
+  ModConexion.rs1.MoveFirst
+  
+  i = 1
+  While i <= ModConexion.rs1.Count
+  
+    HabilitarUsuarios()
+    BtnGuardarUsua.Enabled = False
+    BtnEditarUsua.Enabled = True
+    TxtUsuario.Text = ModConexion.rs1!usuario
+    TxtPass.Text = ModConexion.rs1!pass
+    ComboEstatus.Text = ModConexion.rs1!estatus
+    ComboNivel.Text = ModConexion.rs1!nivel
+  
+    ModConexion.rs1.MoveNext
+    i = i + 1
+    TxtUsuario.Enabled = False
+  Wend
+  
+End
+
+
+Public Function InhabilitarUsuarios()
+  
+  TxtPass.Enabled = False
+  TxtRepetirPass.Enabled = False
+  ComboNivel.Enabled = False
+  ComboEstatus.Enabled = False
+  ComboCIEmpleado.Enabled = False
+  BtnGuardarUsua.Enabled = False
+  BtnEditarUsua.Enabled = False
+  
+  TxtUsuario.SetFocus()
+  
+End
+
+Public Function HabilitarUsuarios()
+  
+  TxtPass.Enabled = True
+  TxtRepetirPass.Enabled = True
+  ComboCIEmpleado.Enabled = True
+  ComboNivel.Enabled = True
+  ComboEstatus.Enabled = True
+  BtnGuardarUsua.Enabled = False
+  BtnEditarUsua.Enabled = False
+  
+End
+
+Public Function LimpiarUsuarios()
+  
+  TxtPass.Clear()
+  TxtRepetirPass.Clear()
+  ComboNivel.Refresh()
+  ComboEstatus.Refresh()
+  ComboCIEmpleado.Refresh()
+  
+End
+
+
+Public Sub TxtUsuario_LostFocus()
+  
+  BuscarUsuario()
+  If Len(TxtUsuario.Text) < 8 Then
+    LblAviso.Visible = True
+    LblAviso.Text = "Debe ingresar Minimo 8 caracteres"
+  Else
+    LblAviso.Text = ""
+  Endif
+
+End
+
+Public Sub Form_Open()
+
+  LblAviso.Visible = False
+  InhabilitarUsuarios()
+  BusquedaCarga()
+
+End
+
+Public Sub BtnCerrarUsua_Click()
+
+  Me.Close()
+
+End
+
+Public Sub TxtPass_LostFocus()
+
+  If Len(TxtPass.Text) < 8 Then
+    LblAviso.Visible = True
+    LblAviso.Text = "Debe ingresar minimo 8 caracteres"
+    If IsNumber(TxtPass.Text) Or IsLetter(TxtPass.Text) Then
+      LblAviso.Text = "Debe ingresar numeros y letras"
+    Endif
+    Else
+      LblAviso.Text = ""
+  Endif
+
+End
+
+Public Sub TxtRepetirPass_LostFocus()
+
+  If Trim(TxtPass.Text) <> Trim(TxtRepetirPass.Text) Then
+    LblAviso.Text = "No son iguales"
+  Endif
+
+End
+
+Public Sub BtnGuardarUsua_Click()
+Dim query As String
+If TxtUsuario.Text = "" Or TxtPass.Text = "" Or TxtRepetirPass.Text = "" Then
+  Message.Error("Campos vacios!")
+  TxtUsuario.Clear
+  TxtUsuario.SetFocus
+  Stop Event
+  Else
+     query = "INSERT INTO usuarios set usuario='" & Trim(UCase(TxtUsuario.Text)) & "', pass='" & Trim(TxtPass.Text) & "', nivel='" & ComboNivel.Text & "',estatus='" & Trim(ComboEstatus.Text) & "',ci_personal='" & Trim(ComboCIEmpleado.Text) & "'"
+  ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Los dato se insertaron satisfactoriamente")
+    TxtPass.Clear()
+    TxtUsuario.Clear()
+    TxtRepetirPass.Clear()
+    ComboCIEmpleado.Refresh
+    ComboEstatus.Refresh
+    ComboNivel.Refresh
+
+    Else
+      message.Error("Los datos no se pudieron insertar")
+  Endif
+Endif
+ 
+
+End
+
+Public Function BusquedaCarga()
+
+Dim captura As Integer
+Dim i As Integer
+
+    ModConexion.rs1 = ModConexion.db.Exec("select cedula FROM personal")
+    ModConexion.rs1.MoveFirst
+    captura = ModConexion.rs1.Count
+    i = 1
+    While i <= captura
+      ComboCIEmpleado.Add(ModConexion.rs1!cedula)
+      ComboCIEmpleado.Refresh()
+      ModConexion.rs1.MoveNext
+        Dec (captura)
+    Wend
+  
+End
+
+Public Sub BtnEditarUsua_Click()
+
+  Dim query As String
+  
+  query = "UPDATE usuarios set pass='" & UCase(TxtPass.Text) & "', nivel='" & ComboNivel.Text & "', estatus='" & ComboEstatus.Text & "', ci_personal='" & ComboCIEmpleado.Text & "' WHERE usuario='" & TxtUsuario.Text & "'"
+  ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Datos Modificados Satisfactoriamente")
+    LimpiarUsuarios()
+    InhabilitarUsuarios()
+    TxtUsuario.Enabled = True
+    TxtUsuario.Clear()
+    TxtUsuario.SetFocus()
+    Else
+      message.Error("Los datos no se pudieron modificar")
+  Endif
+
+End

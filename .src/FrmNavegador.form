@@ -1,0 +1,22 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,157.125,94.625)
+  Text = ("Navegador Web")
+  Icon = Picture["icon:/22/internet"]
+  Resizable = False
+  { TxtUrl TextBox
+    MoveScaled(26,2,78,5)
+  }
+  { ToolButtonInicio ToolButton
+    MoveScaled(19,2,6,5)
+    Picture = Picture["icon:/22/home"]
+  }
+  { ToolButton1 ToolButton
+    MoveScaled(99,2,5,5)
+    Picture = Picture["icon:/22/ok"]
+  }
+  { WebNavega WebView
+    MoveScaled(3,12,152,81)
+  }
+}

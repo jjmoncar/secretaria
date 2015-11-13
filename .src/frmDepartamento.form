@@ -1,0 +1,32 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,118,68)
+  Text = ("Departamentos")
+  Icon = Picture["png/32x32/home.png"]
+  Resizable = False
+  { DataSource1 DataSource
+    MoveScaled(2,2,112,62)
+    { DataBrowser1 DataBrowser
+      MoveScaled(3,3,107,49)
+      Columns = ["id", "nombre_dpto", "siglas"]
+      Labels = ["Codigo", "Nombre", "Logo"]
+      Grid = True
+    }
+    { DataControlId DataControl
+      MoveScaled(17,54,22,5)
+      ToolTip = ("Codigo del Departamento")
+      Field = "id"
+    }
+    { DataControlNombre DataControl
+      MoveScaled(41,54,29,5)
+      ToolTip = ("Nombre del Departamento")
+      Field = "nombre_dpto"
+    }
+    { DataControlSiglas DataControl
+      MoveScaled(72,54,27,5)
+      ToolTip = ("Siglas del Departamento")
+      Field = "siglas"
+    }
+  }
+}

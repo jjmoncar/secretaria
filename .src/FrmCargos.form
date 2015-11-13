@@ -1,0 +1,41 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,113,33)
+  Text = ("Cargos")
+  Icon = Picture["png/32x32/business_user_edit.png"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(11,4,6,5)
+    Text = ("Cargo:")
+  }
+  { txtCargo TextBox
+    MoveScaled(17,4,48,5)
+    ToolTip = ("Especifique el Cargo. Ejemplo: Secretaria, Jefe de División, etc.")
+    MaxLength = 20
+  }
+  { Label2 Label
+    MoveScaled(7,11,10,5)
+    Text = ("Cod. Dpto.")
+  }
+  { ComboDpto ComboBox
+    MoveScaled(17,11,48,5)
+    ToolTip = ("Seleccione el Codigo del Departamento")
+    ReadOnly = True
+  }
+  { BtnAgregarCargo Button
+    MoveScaled(20,23,15,6)
+    Text = ("Agregar")
+    Picture = Picture["png/32x32/accept.png"]
+  }
+  { BtnCerrarCargo Button
+    MoveScaled(43,23,15,6)
+    Text = ("Cerrar")
+    Picture = Picture["icon:/32/quit"]
+  }
+  { lblNombreConsulta Label
+    MoveScaled(67,11,41,5)
+    Font = Font["Bold"]
+    Foreground = &H295F17&
+  }
+}

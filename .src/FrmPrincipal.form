@@ -1,0 +1,127 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,162,112)
+  Text = ("Pantalla Principal")
+  Icon = Picture["png/32x32/globe.png"]
+  Maximized = True
+  { MnOpciones Menu
+    Text = ("Opciones")
+    Shortcut = "Alt+O"
+    { MnRedactar Menu
+      Text = ("Redactar Documento")
+      Picture = Picture["png/32x32/application_edit.png"]
+    }
+    { MnConsular Menu
+      Text = ("Consular Documento")
+      Picture = Picture["png/32x32/folder_search.png"]
+    }
+    { MnSeparador2 Menu
+    }
+    { MnConfigurar Menu
+      Text = ("Configurar")
+      Picture = Picture["png/32x32/globe_process.png"]
+      { MnPersonal Menu
+        Text = ("Personal")
+        Picture = Picture["png/32x32/business_user.png"]
+      }
+      { MnUsuarios Menu
+        Text = ("Usuarios")
+        Picture = Picture["png/32x32/users.png"]
+      }
+      { mnCargos Menu
+        Text = ("Cargos")
+        Picture = Picture["png/16x16/page_edit.png"]
+      }
+      { MnDepartamento Menu
+        Text = ("Departamento")
+        Picture = Picture["png/32x32/home.png"]
+      }
+    }
+    { MnSeparador Menu
+    }
+    { MnCerrar Menu
+      Text = ("Salir")
+      Picture = Picture["icon:/32/quit"]
+    }
+  }
+  { MnReportes Menu
+    Text = ("Reportes")
+    Shortcut = "Alt+H"
+    { MnDocuDpto Menu
+      Text = ("Documentos Por Dpto.")
+      Picture = Picture["png/32x32/page.png"]
+    }
+    { MnDocuLapso Menu
+      Text = ("Documentos Por Lapso")
+      Picture = Picture["png/32x32/folder_edit.png"]
+    }
+    { MnDocuEmpleado Menu
+      Text = ("Documentos Por Empleado")
+      Picture = Picture["png/32x32/business_user_edit.png"]
+    }
+  }
+  { MnAyuda Menu
+    Text = ("Ayuda")
+    Shortcut = "Alt+A"
+    { MnLaAyuda Menu
+      Text = ("Ayuda en Linea")
+      Picture = Picture["png/32x32/application.png"]
+    }
+    { MnLicencia Menu
+      Text = ("Licencia")
+      Picture = Picture["png/32x32/notebook_accept.png"]
+    }
+    { MnAcercaDe Menu
+      Text = ("Acerca de..")
+      Picture = Picture["png/32x32/user_info.png"]
+    }
+  }
+  { TrayIcon1 #TrayIcon
+    #MoveScaled(86,2)
+    Visible = True
+    Tooltip = "Secretaria 1.0"
+    Picture = Picture["png/32x32/notebook_edit.png"]
+  }
+  { ToolBar1 ToolBar
+    MoveScaled(2,1,74,7)
+    Text = ("ToolBar1")
+    Separator = True
+    { Separator1 Separator
+      MoveScaled(42,0,6,7)
+    }
+    { ToolBtnRedactar ToolButton
+      MoveScaled(2,1,6,5)
+      ToolTip = ("Redactar")
+      Picture = Picture["png/32x32/application_edit.png"]
+    }
+    { ToolBtnBuscar ToolButton
+      MoveScaled(12,1,5,5)
+      ToolTip = ("Consultar Documento")
+      Picture = Picture["png/32x32/folder_search.png"]
+    }
+    { ToolButton1 ToolButton
+      MoveScaled(17,1,7,5)
+      ToolTip = ("Configurar Usuarios")
+      Picture = Picture["png/32x32/process.png"]
+    }
+    { TbNavegador ToolButton
+      MoveScaled(26,1,6,5)
+      ToolTip = ("Navegador Web")
+      Picture = Picture["png/32x32/globe.png"]
+    }
+    { ToolBtnAyuda ToolButton
+      MoveScaled(34,1,5,5)
+      ToolTip = ("Ayuda en Linea")
+      Picture = Picture["png/32x32/folder_help.png"]
+    }
+    { ToolBtnSalir ToolButton
+      MoveScaled(47,1,5,5)
+      ToolTip = ("Salir de la Aplicación")
+      Picture = Picture["icon:/32/quit"]
+    }
+  }
+  { Contenedor Workspace
+    MoveScaled(2,9,155,97)
+  }
+}

@@ -1,0 +1,24 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+ WebNavega.Url = "http://www.google.co.ve"
+ TxtUrl.Text = "http://www.google.co.ve"
+ 
+End
+
+
+Public Sub ToolButton1_Click()
+
+  WebNavega.Url = "http://" & Trim(TxtUrl.Text)
+
+End
+
+Public Sub ToolButtonInicio_Click()
+
+  TxtUrl.Clear
+  TxtUrl.Text = "http://www.google.co.ve"
+  WebNavega.Url = "http://www.google.co.ve"
+
+End

@@ -1,0 +1,86 @@
+' Gambas class file
+
+
+Public Sub MnCerrar_Click()
+
+  ModConexion.CerrarTodo()
+End
+
+Public Sub Form_Close()
+
+  MnCerrar_Click
+
+End
+
+Public Sub ToolBtnSalir_Click()
+
+  MnCerrar_Click
+
+End
+
+Public Sub MnDepartamento_Click()
+
+  Contenedor.Add(frmDepartamento)
+
+End
+
+
+Public Sub MnPersonal_Click()
+
+  Contenedor.Add(frmPersonal)
+
+End
+
+Public Sub MnUsuarios_Click()
+
+  Contenedor.Add(frmUsuarios)
+
+End
+
+Public Sub MnAcercaDe_Click()
+
+  Exec ["google-chrome", User.Home & "/gambas/secretaria/.hidden/acercade.html"]
+
+End
+
+Public Sub MnLicencia_Click()
+
+  Exec ["google-chrome", User.Home & "/gambas/secretaria/.hidden/licencia.html"]
+
+End
+
+Public Sub ToolButton1_Click()
+
+  Contenedor.Add(frmUsuarios)
+
+End
+
+Public Sub MnLaAyuda_Click()
+
+  Message.Info("Manual en Construcción!")
+
+End
+
+Public Sub TbNavegador_Click()
+
+  Contenedor.Add(FrmNavegador)
+
+End
+
+Public Sub MnRedactar_Click()
+
+  Contenedor.Add(FrmDocumento)
+
+End
+
+Public Sub mnCargos_Click()
+
+  Contenedor.Add(FrmCargos)
+
+End
+
+Public Sub ToolBtnRedactar_Click()
+
+  Contenedor.Add(FrmDocumento)
+
+End

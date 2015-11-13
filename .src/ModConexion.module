@@ -1,0 +1,116 @@
+' Gambas module file
+
+Public db As New Connection
+Public rs1 As Result
+Public UsuarioLinea As String
+Public Nivel As Integer
+
+Public Function conexion() As Boolean
+ db.close()
+ db.type = "mysql"
+ db.host = "localhost"
+ db.login = "root"
+ db.password = "1234"
+ db.Name = "secretaria"
+ db.open()
+ Return True
+ Catch
+  message.error(Error.text)
+  Return False
+ End
+ 
+ Public Function InhabilitarPersonal()
+  
+  frmPersonal.TxtNombre.Enabled = False
+  frmPersonal.TxtApellidos.Enabled = False
+  frmPersonal.TxtTelefono.Enabled = False
+  frmPersonal.TxtCelular.Enabled = False
+  frmPersonal.BtnGuardar.Enabled = False
+  frmPersonal.BtnEditar.Enabled = False
+  frmPersonal.BtnEliminar.Enabled = False
+  
+End
+
+Public Function HabilitarPersonal()
+  
+  frmPersonal.TxtNombre.Enabled = True
+  frmPersonal.TxtApellidos.Enabled = True
+  frmPersonal.TxtTelefono.Enabled = True
+  frmPersonal.TxtCelular.Enabled = True
+  frmPersonal.BtnGuardar.Enabled = True
+  frmPersonal.BtnEditar.Enabled = False
+  frmPersonal.BtnEliminar.Enabled = False
+  
+End
+
+Public Function ValidarLetras()
+  
+  If (Key.Code >= Asc("0") And Key.Code <= Asc("9")) Then
+    Message.Warning("Solo puede ingresar letras!")
+    Stop Event
+
+  Endif
+  
+End
+
+Public Function LimpiarPersonal()
+  
+  frmPersonal.TxtNombre.Clear()
+  frmPersonal.ValueCedula.Enabled = True
+  frmPersonal.ValueCedula.Value = 0
+  frmPersonal.TxtApellidos.Clear()
+  frmPersonal.TxtTelefono.Clear()
+  frmPersonal.TxtCelular.Clear()
+  
+End
+
+ 
+Public Function LimpiarTodo()
+
+  Dim ctl As Control 
+  Dim txt As TextBox 
+  Dim area As TextArea
+  Dim comb As ComboBox 
+
+   For Each ctl In FrmDocumento.Controls   'No funciona el ME.Control
+        If OBJECT.Type(ctl) = "TextBox" Then 
+             txt = ctl
+             txt.Clear() 
+        Endif 
+        If OBJECT.Type(ctl) = "TextArea" Then             ' Esto con los tipos de control que 
+              area = ctl                                                     ' quieras limpiar (o inicializar) 
+              area.clear() 
+        Endif
+        If Object.Type(ctl) = "ComboBox" Then
+          comb = ctl
+          comb.Clear()
+        Endif
+    Next 
+  
+End
+
+
+Public Sub consulta(qry As String)
+ 
+ rs1 = db.Exec(qry)
+ 
+End
+
+Public Function CerrarTodo()
+  
+Dim Cerrar As Integer
+Cerrar = Message.Warning("¿Desea Cerrar la Aplicación?", "Si", "No")
+  If Cerrar = 1 Then
+    FMain.Close()
+    Quit
+  Endif
+  
+End
+
+Public Sub main()
+  
+conexion()
+FMain.Center()
+FMain.Show()
+  
+End

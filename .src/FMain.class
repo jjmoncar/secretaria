@@ -1,0 +1,48 @@
+' Gambas class file
+
+Public Contador As Integer
+
+Public Sub BtnCancelar_Click()
+
+ModConexion.CerrarTodo()
+
+End
+
+Public Function validacionIngreso()
+  
+  Dim query As String
+
+  query = "SELECT * FROM usuarios WHERE usuario='" & Trim(TxtUsuario.Text) & "' AND pass='" & Trim(TxtPass.Text) & "'"
+  ModConexion.consulta(query)
+  If ModConexion.rs1.Count > 0 Then
+    FrmPrincipal.Text = "Usuario en Linea: " & ModConexion.rs1!usuario & "     Hora de Conexion: " & Time(Now)
+    Me.Close
+    FrmPrincipal.Show
+    Else
+      Contador = Contador + 1
+      Message.Warning("No se encuentra el Usuario y la Contraseña!!\n Intento Nº " & Contador)
+      TxtPass.Text = ""
+      TxtUsuario.Text = ""
+      TxtUsuario.SetFocus
+      If Contador = 3 Then
+        Message("Usted parece no ser usuario autorizado.\n Ha realizado: " & Contador & " Intentos")
+        Me.Close
+      End If
+  Endif
+  
+End
+
+
+Public Sub BtnIngresar_Click()
+
+  validacionIngreso()
+
+End
+
+Public Sub TxtPass_KeyRelease()
+
+  If Key.Code = Key.Enter Or Key.Code = Key.Return Then
+    validacionIngreso()
+  Endif
+
+End
