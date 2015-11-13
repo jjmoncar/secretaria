@@ -1,0 +1,57 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,138,57)
+  Text = ("Documento")
+  Icon = Picture["png/32x32/application_accept.png"]
+  Resizable = False
+  { lblOficio Label
+    MoveScaled(3,3,35,4)
+    Border = Border.Sunken
+  }
+  { Label1 Label
+    MoveScaled(43,3,5,4)
+    Text = ("Para:")
+  }
+  { ComboPara ComboBox
+    MoveScaled(48,3,51,4)
+    ReadOnly = True
+  }
+  { Label2 Label
+    MoveScaled(3,8,7,4)
+    Text = ("Asunto:")
+  }
+  { txtAsunto TextBox
+    MoveScaled(10,8,89,4)
+  }
+  { lblFecha Label
+    MoveScaled(105,8,30,4)
+    Font = Font["Bold,+1"]
+    Border = Border.Etched
+  }
+  { txtContenido TextArea
+    MoveScaled(2,14,133,30)
+  }
+  { btnGuardar Button
+    MoveScaled(49,46,21,7)
+    Font = Font["Bold"]
+    ToolTip = ("Guardar el Documento Existente...")
+    Text = ("Guardar")
+    Picture = Picture["png/32x32/accept.png"]
+  }
+  { btnCerrar Button
+    MoveScaled(77,46,21,7)
+    Font = Font["Bold"]
+    ToolTip = ("Cerrar esta Ventana")
+    Text = ("Cerrar")
+    Picture = Picture["icon:/32/quit"]
+  }
+  { Label3 Label
+    MoveScaled(101,3,4,4)
+    Text = ("C.C:")
+  }
+  { txtCC TextBox
+    MoveScaled(105,3,30,4)
+    MaxLength = 30
+  }
+}

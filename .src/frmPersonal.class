@@ -1,0 +1,190 @@
+' Gambas class file
+
+Public Sub Form_Open()
+
+ModConexion.InhabilitarPersonal()
+BusquedaCarga()
+
+End
+
+Public Function BusquedaCarga()
+  
+Dim captura As Integer
+Dim i As Integer
+
+    ModConexion.rs1 = ModConexion.db.Exec("select * FROM secretaria.departamento")
+    ModConexion.rs1.MoveFirst
+    captura = ModConexion.rs1.Count
+    i = 1
+    While i <= captura
+      ComboDepartamento.Add(ModConexion.rs1!id)
+      ComboDepartamento.Refresh()
+      ModConexion.rs1.MoveNext
+        Dec (captura)
+    Wend
+  
+End
+
+Function BusquedaNombre()
+  
+    Dim consul, valor2 As String
+  
+   consul = "SELECT nombre_dpto FROM departamento WHERE id='" & ComboDepartamento.Text & "'"
+   ModConexion.consulta(consul)
+   If ModConexion.rs1.Count > 0 Then
+     Valor2 = ModConexion.rs1!nombre_dpto
+     lblDpto.Text = Valor2
+   Endif
+  
+End
+
+Public Sub ValueCedula_KeyPress()
+
+  If Len(ValueCedula.Text) > 8 Then
+    Message.Warning("No puede ser mayor de 8 caracteres")
+    ValueCedula.Value = "0"
+    ValueCedula.Refresh()
+  Endif
+
+End
+
+Public Sub TxtTelefono_LostFocus()
+
+  If Not IsNumber(TxtTelefono.Text) Then
+    Message.Warning("No se ingresaron numeros")
+  Endif
+
+End
+
+Public Sub TxtCelular_LostFocus()
+
+  If Not IsNumber(TxtCelular.Text) Then
+    Message.Warning("No se ingresaron numeros")
+  Endif
+
+End
+
+
+Public Sub BtnNuevo_Click()
+
+  ModConexion.HabilitarPersonal()
+  ValueCedula.SetFocus()
+
+End
+Public Sub BtnCerrar_Click()
+
+  Me.Close()
+
+End
+
+
+Public Sub BtnGuardar_Click()
+  Dim query As String
+  
+  query = "INSERT INTO personal set cedula='" & ValueCedula.Value & "', nombre='" & Trim(UCase(TxtNombre.Text)) & "', apellido='" & 
+  Trim(UCase(TxtApellidos.text)) & "', telefono='" & Trim(TxtTelefono.Text) & "', celular='" & Trim(TxtCelular.Text) & "',cod_departamento='" & 
+  ComboDepartamento.Text & "'"
+  ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Datos Guardados!")
+    ModConexion.LimpiarPersonal()
+    ModConexion.InhabilitarPersonal()
+
+    Else
+      message.Error("Los datos no se pudieron insertar")
+  Endif
+
+End
+
+Public Sub TxtNombre_KeyPress()
+
+  ModConexion.ValidarLetras()
+
+End
+
+Public Sub TxtApellidos_KeyPress()
+
+  ModConexion.ValidarLetras()
+
+End
+
+Public Sub ValueCedula_LostFocus()
+
+  Dim i As Integer
+  
+  ModConexion.rs1 = ModConexion.db.Exec("select * FROM personal where cedula = '" & ValueCedula.Text & "'")
+  If ModConexion.rs1.Count = 0 Then
+    Message.Info("Cedula No Encontrada. Registrado el usuario con cedula: " & ValueCedula.Text)
+    Stop Event
+    Else
+      Message.Info("Cargando Datos de Usuario..")
+  Endif
+  ModConexion.rs1.MoveFirst
+  
+  i = 1
+  While i <= ModConexion.rs1.Count
+  
+    ModConexion.HabilitarPersonal()
+    BtnEditar.Enabled = True
+    BtnEliminar.Enabled = True
+    BtnGuardar.Enabled = False
+    TxtNombre.Text = ModConexion.rs1!nombre
+    TxtApellidos.Text = ModConexion.rs1!apellido
+    TxtTelefono.Text = ModConexion.rs1!telefono
+    TxtCelular.Text = ModConexion.rs1!celular
+    ComboDepartamento.Text = ModConexion.rs1!cod_departamento
+  
+    ModConexion.rs1.MoveNext
+    i = i + 1
+    ValueCedula.Enabled = False
+  Wend
+
+End
+
+Public Sub BtnLimpiar_Click()
+
+  ModConexion.LimpiarPersonal()
+  ModConexion.InhabilitarPersonal()
+
+End
+
+Public Sub BtnEditar_Click()
+
+  Dim query As String
+  
+  query = "UPDATE personal set nombre='" & Trim(UCase(TxtNombre.Text)) & "', apellido='" & Trim(UCase(TxtApellidos.Text)) & "', telefono='" & Trim(TxtTelefono.Text) & "', celular='" & Trim(TxtCelular.Text) & "',cod_departamento='" & ComboDepartamento.Text & "' WHERE cedula='" & ValueCedula.Text & "'"
+  ModConexion.consulta(query)
+  If ModConexion.conexion() Then
+    message.Info("Datos Modificados Satisfactoriamente")
+    ModConexion.LimpiarPersonal()
+    ModConexion.InhabilitarPersonal()
+    Else
+      message.Error("Los datos no se pudieron modificar")
+  Endif
+
+End
+
+Public Sub BtnEliminar_Click()
+
+  Dim query As String
+  Dim a As Integer
+  
+    a = Message.Delete("¿Desea eliminar este dato: " & ValueCedula.Text & "?", "Si", "No")
+    If a = 1 Then
+'Eliminar 
+        query = "delete from personal where cedula='" & ValueCedula.text & "'"
+        ModConexion.consulta(query)
+        Message.Info("Dato eliminado con éxito")
+        ModConexion.LimpiarPersonal()
+        ModConexion.InhabilitarPersonal()
+    Else
+        Message.Error("El usuario no fue eliminado")
+    Endif
+
+End
+
+Public Sub ComboDepartamento_Click()
+
+  BusquedaNombre()
+
+End

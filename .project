@@ -1,0 +1,27 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.5.4
+Title=Secretaria
+Startup=ModConexion
+Icon=png/32x32/notebook_edit.png
+Version=0.0.3
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.data
+Component=gb.db
+Component=gb.db.form
+Component=gb.db.mysql
+Component=gb.settings
+Component=gb.form.mdi
+Component=gb.pdf
+Component=gb.qt4.ext
+Component=gb.qt4.webkit
+Component=gb.report
+Component=gb.web
+Description="Sistema de gestion de documentos para el Departamento de Informatica de la Universidad Politecnica de Paria \"Luis Mariano Rivera\""
+Authors="Ing. Julio J. Montaño C."
+TabSize=2
+Translate=1
+Language=es
+SourcePath=/home/admindit/gambas
+Packager=1

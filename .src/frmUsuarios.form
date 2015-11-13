@@ -1,0 +1,86 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,104,45)
+  Text = ("Gestion de Usuarios")
+  Icon = Picture["icon:/32/people"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(9,2,8,4)
+    Text = ("Usuario:")
+  }
+  { !TxtUsuario TextBox
+    MoveScaled(17,2,25,4)
+    #Public = True
+    MaxLength = 12
+  }
+  { Label2 Label
+    MoveScaled(8,7,9,4)
+    Text = ("Password:")
+  }
+  { !TxtPass TextBox
+    MoveScaled(17,7,25,4)
+    #Public = True
+    Password = True
+    MaxLength = 12
+  }
+  { Label3 Label
+    MoveScaled(1,12,15,4)
+    Text = ("Repetir Password:")
+  }
+  { !TxtRepetirPass TextBox
+    MoveScaled(17,12,25,4)
+    #Public = True
+    Password = True
+    MaxLength = 12
+  }
+  { Label4 Label
+    MoveScaled(5,17,13,4)
+    Text = ("Nivel Acceso:")
+  }
+  { !ComboNivel ComboBox
+    MoveScaled(17,17,21,4)
+    #Public = True
+    ReadOnly = True
+    List = [("1"), ("2"), ("3")]
+  }
+  { LblAviso Label
+    MoveScaled(46,2,56,5)
+    Font = Font["DejaVu Sans,Bold,+1"]
+    Foreground = &HFF0000&
+  }
+  { BtnGuardarUsua Button
+    MoveScaled(2,33,13,6)
+    Text = ("&Guardar")
+    Picture = Picture["png/32x32/accept.png"]
+  }
+  { BtnCerrarUsua Button
+    MoveScaled(30,33,13,6)
+    Text = ("&Cerrar")
+    Picture = Picture["png/32x32/red_button.png"]
+  }
+  { Label5 Label
+    MoveScaled(9,22,8,4)
+    Text = ("Estatus:")
+  }
+  { !ComboEstatus ComboBox
+    MoveScaled(17,22,21,4)
+    #Public = True
+    ReadOnly = True
+    List = [("Activo"), ("Inactivo")]
+  }
+  { Label6 Label
+    MoveScaled(4,27,13,4)
+    Text = ("C.I. Empleado:")
+  }
+  { !ComboCIEmpleado ComboBox
+    MoveScaled(17,27,21,4)
+    #Public = True
+    ReadOnly = True
+  }
+  { BtnEditarUsua Button
+    MoveScaled(16,33,13,6)
+    Text = ("E&ditar")
+    Picture = Picture["png/32x32/page_process.png"]
+  }
+}

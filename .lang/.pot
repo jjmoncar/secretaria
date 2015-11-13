@@ -1,0 +1,317 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "Secretaria"
+msgstr ""
+
+#: .project:2
+msgid ""
+"Sistema de gestion de documentos para el Departamento de Informatica de la "
+"Universidad Politecnica de Paria \"Luis Mariano Rivera\""
+msgstr ""
+
+#: FMain.form:18 frmUsuarios.form:29
+msgid "Usuario:"
+msgstr ""
+
+#: FMain.form:23
+msgid "Contraseña:"
+msgstr ""
+
+#: FMain.form:28
+msgid "Ingrese su Nombre de Usuario"
+msgstr ""
+
+#: FMain.form:34
+msgid "Ingrese su contraseña o password"
+msgstr ""
+
+#: FMain.form:41
+msgid "Presione para validar su usuario y contraseña"
+msgstr ""
+
+#: FMain.form:42
+msgid "&Ingresar"
+msgstr ""
+
+#: FMain.form:48
+msgid "Cierra la aplicación..."
+msgstr ""
+
+#: FMain.form:49
+msgid "&Cancelar"
+msgstr ""
+
+#: FrmCargos.form:14 FrmPrincipal.form:74
+msgid "Cargos"
+msgstr ""
+
+#: FrmCargos.form:20
+msgid "Cargo:"
+msgstr ""
+
+#: FrmCargos.form:25
+msgid "Especifique el Cargo. Ejemplo: Secretaria, Jefe de División, etc."
+msgstr ""
+
+#: FrmCargos.form:31
+msgid "Cod. Dpto."
+msgstr ""
+
+#: FrmCargos.form:36
+msgid "Seleccione el Codigo del Departamento"
+msgstr ""
+
+#: FrmCargos.form:42
+msgid "Agregar"
+msgstr ""
+
+#: FrmCargos.form:48 FrmDocumento.form:68 frmPersonal.form:106
+msgid "Cerrar"
+msgstr ""
+
+#: FrmDocumento.form:18
+msgid "Documento"
+msgstr ""
+
+#: FrmDocumento.form:29
+msgid "Para:"
+msgstr ""
+
+#: FrmDocumento.form:39
+msgid "Asunto:"
+msgstr ""
+
+#: FrmDocumento.form:59
+msgid "Guardar el Documento Existente..."
+msgstr ""
+
+#: FrmDocumento.form:60 frmPersonal.form:88
+msgid "Guardar"
+msgstr ""
+
+#: FrmDocumento.form:67
+msgid "Cerrar esta Ventana"
+msgstr ""
+
+#: FrmDocumento.form:74
+msgid "C.C:"
+msgstr ""
+
+#: FrmNavegador.form:11 FrmPrincipal.form:168
+msgid "Navegador Web"
+msgstr ""
+
+#: FrmPrincipal.form:37
+msgid "Pantalla Principal"
+msgstr ""
+
+#: FrmPrincipal.form:43
+msgid "Opciones"
+msgstr ""
+
+#: FrmPrincipal.form:47
+msgid "Redactar Documento"
+msgstr ""
+
+#: FrmPrincipal.form:52
+msgid "Consular Documento"
+msgstr ""
+
+#: FrmPrincipal.form:60
+msgid "Configurar"
+msgstr ""
+
+#: FrmPrincipal.form:64 frmPersonal.form:26
+msgid "Personal"
+msgstr ""
+
+#: FrmPrincipal.form:69
+msgid "Usuarios"
+msgstr ""
+
+#: FrmPrincipal.form:79
+msgid "Departamento"
+msgstr ""
+
+#: FrmPrincipal.form:88
+msgid "Salir"
+msgstr ""
+
+#: FrmPrincipal.form:94
+msgid "Reportes"
+msgstr ""
+
+#: FrmPrincipal.form:98
+msgid "Documentos Por Dpto."
+msgstr ""
+
+#: FrmPrincipal.form:103
+msgid "Documentos Por Lapso"
+msgstr ""
+
+#: FrmPrincipal.form:108
+msgid "Documentos Por Empleado"
+msgstr ""
+
+#: FrmPrincipal.form:114
+msgid "Ayuda"
+msgstr ""
+
+#: FrmPrincipal.form:118
+msgid "Ayuda en Linea"
+msgstr ""
+
+#: FrmPrincipal.form:123
+msgid "Licencia"
+msgstr ""
+
+#: FrmPrincipal.form:128
+msgid "Acerca de.."
+msgstr ""
+
+#: FrmPrincipal.form:141
+msgid "ToolBar1"
+msgstr ""
+
+#: FrmPrincipal.form:150
+msgid "Redactar"
+msgstr ""
+
+#: FrmPrincipal.form:156
+msgid "Consultar Documento"
+msgstr ""
+
+#: FrmPrincipal.form:162
+msgid "Configurar Usuarios"
+msgstr ""
+
+#: FrmPrincipal.form:180
+msgid "Salir de la Aplicación"
+msgstr ""
+
+#: frmDepartamento.form:12
+msgid "Departamentos"
+msgstr ""
+
+#: frmDepartamento.form:28
+msgid "Codigo del Departamento"
+msgstr ""
+
+#: frmDepartamento.form:34
+msgid "Nombre del Departamento"
+msgstr ""
+
+#: frmDepartamento.form:40
+msgid "Siglas del Departamento"
+msgstr ""
+
+#: frmPersonal.form:32
+msgid "Cedula:"
+msgstr ""
+
+#: frmPersonal.form:37
+msgid "Ingrese un numero de cedula para buscar."
+msgstr ""
+
+#: frmPersonal.form:42
+msgid "Nombres:"
+msgstr ""
+
+#: frmPersonal.form:52
+msgid "Apellidos:"
+msgstr ""
+
+#: frmPersonal.form:62
+msgid "Telefono:"
+msgstr ""
+
+#: frmPersonal.form:72
+msgid "Celular:"
+msgstr ""
+
+#: frmPersonal.form:82
+msgid "Nuevo"
+msgstr ""
+
+#: frmPersonal.form:94
+msgid "Editar"
+msgstr ""
+
+#: frmPersonal.form:100
+msgid "Eliminar"
+msgstr ""
+
+#: frmPersonal.form:112
+msgid "Limpiar"
+msgstr ""
+
+#: frmPersonal.form:123
+msgid "Departamento:"
+msgstr ""
+
+#: frmUsuarios.form:23
+msgid "Gestion de Usuarios"
+msgstr ""
+
+#: frmUsuarios.form:39
+msgid "Password:"
+msgstr ""
+
+#: frmUsuarios.form:50
+msgid "Repetir Password:"
+msgstr ""
+
+#: frmUsuarios.form:61
+msgid "Nivel Acceso:"
+msgstr ""
+
+#: frmUsuarios.form:67
+msgid "1"
+msgstr ""
+
+#: frmUsuarios.form:67
+msgid "2"
+msgstr ""
+
+#: frmUsuarios.form:67
+msgid "3"
+msgstr ""
+
+#: frmUsuarios.form:78
+msgid "&Guardar"
+msgstr ""
+
+#: frmUsuarios.form:84
+msgid "&Cerrar"
+msgstr ""
+
+#: frmUsuarios.form:90
+msgid "Estatus:"
+msgstr ""
+
+#: frmUsuarios.form:96
+msgid "Activo"
+msgstr ""
+
+#: frmUsuarios.form:96
+msgid "Inactivo"
+msgstr ""
+
+#: frmUsuarios.form:101
+msgid "C.I. Empleado:"
+msgstr ""
+
+#: frmUsuarios.form:111
+msgid "E&ditar"
+msgstr ""
